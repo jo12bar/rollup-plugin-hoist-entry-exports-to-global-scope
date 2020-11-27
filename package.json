@@ -1,0 +1,57 @@
+{
+  "name": "rollup-plugin-hoist-entry-exports-to-global-scope",
+  "version": "1.0.0",
+  "description": "A simple plugin that hoists any named exports in the entry file to the global scope (i.e. outside the IIFE/UMD/similar scope)",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope.git"
+  },
+  "keywords": [
+    "rollup-plugin",
+    "google-apps-script"
+  ],
+  "author": "Johann Barnard <johann.b@telus.net>",
+  "license": "MIT",
+  "bugs": "https://github.com/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/issues",
+  "homepage": "https://github.com/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope#readme",
+  "scripts": {
+    "build": "rollup -c",
+    "lint": "eslint --fix --cache src --ext .js,.ts",
+    "format": "prettier --write .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "dist",
+    "types",
+    "README.md",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "rollup": "^2.33.3"
+  },
+  "dependencies": {
+    "@rollup/pluginutils": "^4.1.0",
+    "estree-walker": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.10",
+    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "@typescript-eslint/parser": "^4.8.2",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "lint-staged": "^10.5.2",
+    "prettier": "^2.2.0",
+    "rollup": "^2.33.3",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "tslib": "^2.0.3",
+    "typescript": "^4.1.2"
+  },
+  "lint-staged": {
+    "src/**/*.js,src/**/*.ts": "eslint --fix --cache",
+    "*.js,*.ts,*.md,*.json": "prettier --write"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "include": ["src/**/*", "types/**/*"],
+  "exclude": ["dist", "node_modules"],
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "lib": ["es6"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noEmitOnError": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "pretty": true,
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "strict": true,
+    "target": "es2017",
+    "declaration": true,
+    "declarationDir": "types"
+  }
+}
