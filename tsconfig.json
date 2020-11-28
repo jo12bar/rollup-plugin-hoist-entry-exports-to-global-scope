@@ -2,10 +2,10 @@
   "include": ["src/**/*", "types/**/*"],
   "exclude": ["dist", "node_modules"],
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "lib": ["es6"],
+    "lib": ["es2018"],
     "module": "esnext",
     "moduleResolution": "node",
+    "esModuleInterop": true,
     "resolveJsonModule": true,
     "noEmit": true,
     "noEmitOnError": true,
@@ -15,8 +15,8 @@
     "skipLibCheck": true,
     "sourceMap": false,
     "strict": true,
-    "target": "es2017",
+    "target": "es2018",
     "declaration": true,
-    "declarationDir": "types"
+    "declarationDir": "dist/types"
   }
 }

@@ -1,0 +1,617 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generates bindings for class-only file 1`] = `
+Object {
+  "output": Array [
+    Object {
+      "code": "(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.JustClasses = {}));
+}(this, (function (exports) { 'use strict';
+
+  class TestClass1 {
+    constructor() {
+      this.foo = 'bar';
+    }
+  }
+
+  class TestClass2 extends TestClass1 {
+    constructor() {
+      super();
+      this.spam = this.foo + ' and eggs';
+    }
+  }
+
+  exports.TestClass1 = TestClass1;
+  exports.TestClass2 = TestClass2;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
+
+var TestClass1=JustClasses.TestClass1;var TestClass2=JustClasses.TestClass2;
+",
+      "dynamicImports": Array [],
+      "exports": Array [
+        "TestClass1",
+        "TestClass2",
+      ],
+      "facadeModuleId": "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-classes.js",
+      "fileName": "just-classes.js",
+      "implicitlyLoadedBefore": Array [],
+      "importedBindings": Object {},
+      "imports": Array [],
+      "isDynamicEntry": false,
+      "isEntry": true,
+      "isImplicitEntry": false,
+      "map": null,
+      "modules": Object {
+        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-classes.js": Object {
+          "originalLength": 195,
+          "removedExports": Array [],
+          "renderedExports": Array [
+            "TestClass1",
+            "TestClass2",
+          ],
+          "renderedLength": 180,
+        },
+      },
+      "name": "just-classes",
+      "referencedFiles": Array [],
+      "type": "chunk",
+    },
+  ],
+}
+`;
+
+exports[`generates bindings for class-only file 2`] = `
+Object {
+  "output": Array [
+    Object {
+      "code": "var JustClasses = (function (exports) {
+  'use strict';
+
+  class TestClass1 {
+    constructor() {
+      this.foo = 'bar';
+    }
+  }
+
+  class TestClass2 extends TestClass1 {
+    constructor() {
+      super();
+      this.spam = this.foo + ' and eggs';
+    }
+  }
+
+  exports.TestClass1 = TestClass1;
+  exports.TestClass2 = TestClass2;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
+
+  return exports;
+
+}({}));
+
+var TestClass1=JustClasses.TestClass1;var TestClass2=JustClasses.TestClass2;
+",
+      "dynamicImports": Array [],
+      "exports": Array [
+        "TestClass1",
+        "TestClass2",
+      ],
+      "facadeModuleId": "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-classes.js",
+      "fileName": "just-classes.js",
+      "implicitlyLoadedBefore": Array [],
+      "importedBindings": Object {},
+      "imports": Array [],
+      "isDynamicEntry": false,
+      "isEntry": true,
+      "isImplicitEntry": false,
+      "map": null,
+      "modules": Object {
+        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-classes.js": Object {
+          "originalLength": 195,
+          "removedExports": Array [],
+          "renderedExports": Array [
+            "TestClass1",
+            "TestClass2",
+          ],
+          "renderedLength": 180,
+        },
+      },
+      "name": "just-classes",
+      "referencedFiles": Array [],
+      "type": "chunk",
+    },
+  ],
+}
+`;
+
+exports[`generates bindings for files that contain imports 1`] = `
+Object {
+  "output": Array [
+    Object {
+      "code": "(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ImportingThings = {}));
+}(this, (function (exports) { 'use strict';
+
+  class TestClass1 {
+    constructor() {
+      this.foo = 'bar';
+    }
+  }
+
+  class TestClass2 extends TestClass1 {
+    constructor() {
+      super();
+      this.spam = this.foo + ' and eggs';
+    }
+  }
+
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  function identity(x) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return x;
+  }
+
+  let spam = ['eggs', 'eggs', 'eggs'];
+
+  class CompositeClass extends TestClass2 {
+    constructor() {
+      super();
+      /* eslint-disable @typescript-eslint/restrict-plus-operands */
+      this.yeet =
+        this.spam + this.foo + identity(' yeet') + ' ' + spam.join(' ');
+      /* eslint-enable @typescript-eslint/restrict-plus-operands */
+    }
+  }
+
+  exports.CompositeClass = CompositeClass;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
+
+var CompositeClass=ImportingThings.CompositeClass;
+",
+      "dynamicImports": Array [],
+      "exports": Array [
+        "CompositeClass",
+      ],
+      "facadeModuleId": "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/importing-things.js",
+      "fileName": "importing-things.js",
+      "implicitlyLoadedBefore": Array [],
+      "importedBindings": Object {},
+      "imports": Array [],
+      "isDynamicEntry": false,
+      "isEntry": true,
+      "isImplicitEntry": false,
+      "map": null,
+      "modules": Object {
+        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/importing-things.js": Object {
+          "originalLength": 444,
+          "removedExports": Array [],
+          "renderedExports": Array [
+            "CompositeClass",
+          ],
+          "renderedLength": 298,
+        },
+        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-classes.js": Object {
+          "originalLength": 195,
+          "removedExports": Array [],
+          "renderedExports": Array [
+            "TestClass1",
+            "TestClass2",
+          ],
+          "renderedLength": 180,
+        },
+        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-functions.js": Object {
+          "originalLength": 494,
+          "removedExports": Array [
+            "fn1",
+            "fn2",
+          ],
+          "renderedExports": Array [
+            "identity",
+          ],
+          "renderedLength": 259,
+        },
+        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-variables.js": Object {
+          "originalLength": 131,
+          "removedExports": Array [
+            "foo",
+            "context",
+          ],
+          "renderedExports": Array [
+            "spam",
+          ],
+          "renderedLength": 36,
+        },
+      },
+      "name": "importing-things",
+      "referencedFiles": Array [],
+      "type": "chunk",
+    },
+  ],
+}
+`;
+
+exports[`generates bindings for files that contain imports 2`] = `
+Object {
+  "output": Array [
+    Object {
+      "code": "var ImportingThings = (function (exports) {
+  'use strict';
+
+  class TestClass1 {
+    constructor() {
+      this.foo = 'bar';
+    }
+  }
+
+  class TestClass2 extends TestClass1 {
+    constructor() {
+      super();
+      this.spam = this.foo + ' and eggs';
+    }
+  }
+
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  function identity(x) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return x;
+  }
+
+  let spam = ['eggs', 'eggs', 'eggs'];
+
+  class CompositeClass extends TestClass2 {
+    constructor() {
+      super();
+      /* eslint-disable @typescript-eslint/restrict-plus-operands */
+      this.yeet =
+        this.spam + this.foo + identity(' yeet') + ' ' + spam.join(' ');
+      /* eslint-enable @typescript-eslint/restrict-plus-operands */
+    }
+  }
+
+  exports.CompositeClass = CompositeClass;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
+
+  return exports;
+
+}({}));
+
+var CompositeClass=ImportingThings.CompositeClass;
+",
+      "dynamicImports": Array [],
+      "exports": Array [
+        "CompositeClass",
+      ],
+      "facadeModuleId": "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/importing-things.js",
+      "fileName": "importing-things.js",
+      "implicitlyLoadedBefore": Array [],
+      "importedBindings": Object {},
+      "imports": Array [],
+      "isDynamicEntry": false,
+      "isEntry": true,
+      "isImplicitEntry": false,
+      "map": null,
+      "modules": Object {
+        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/importing-things.js": Object {
+          "originalLength": 444,
+          "removedExports": Array [],
+          "renderedExports": Array [
+            "CompositeClass",
+          ],
+          "renderedLength": 298,
+        },
+        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-classes.js": Object {
+          "originalLength": 195,
+          "removedExports": Array [],
+          "renderedExports": Array [
+            "TestClass1",
+            "TestClass2",
+          ],
+          "renderedLength": 180,
+        },
+        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-functions.js": Object {
+          "originalLength": 494,
+          "removedExports": Array [
+            "fn1",
+            "fn2",
+          ],
+          "renderedExports": Array [
+            "identity",
+          ],
+          "renderedLength": 259,
+        },
+        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-variables.js": Object {
+          "originalLength": 131,
+          "removedExports": Array [
+            "foo",
+            "context",
+          ],
+          "renderedExports": Array [
+            "spam",
+          ],
+          "renderedLength": 36,
+        },
+      },
+      "name": "importing-things",
+      "referencedFiles": Array [],
+      "type": "chunk",
+    },
+  ],
+}
+`;
+
+exports[`generates bindings for function-only file 1`] = `
+Object {
+  "output": Array [
+    Object {
+      "code": "(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.JustFunctions = {}));
+}(this, (function (exports) { 'use strict';
+
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  function fn1() {
+    return true;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  function fn2() {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return this;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  function identity(x) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return x;
+  }
+
+  exports.fn1 = fn1;
+  exports.fn2 = fn2;
+  exports.identity = identity;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
+
+function fn1(){return JustFunctions.fn1.apply(null,arguments);}function fn2(){return JustFunctions.fn2.apply(null,arguments);}function identity(){return JustFunctions.identity.apply(null,arguments);}
+",
+      "dynamicImports": Array [],
+      "exports": Array [
+        "fn1",
+        "fn2",
+        "identity",
+      ],
+      "facadeModuleId": "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-functions.js",
+      "fileName": "just-functions.js",
+      "implicitlyLoadedBefore": Array [],
+      "importedBindings": Object {},
+      "imports": Array [],
+      "isDynamicEntry": false,
+      "isEntry": true,
+      "isImplicitEntry": false,
+      "map": null,
+      "modules": Object {
+        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-functions.js": Object {
+          "originalLength": 494,
+          "removedExports": Array [],
+          "renderedExports": Array [
+            "fn1",
+            "fn2",
+            "identity",
+          ],
+          "renderedLength": 472,
+        },
+      },
+      "name": "just-functions",
+      "referencedFiles": Array [],
+      "type": "chunk",
+    },
+  ],
+}
+`;
+
+exports[`generates bindings for function-only file 2`] = `
+Object {
+  "output": Array [
+    Object {
+      "code": "var JustFunctions = (function (exports) {
+  'use strict';
+
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  function fn1() {
+    return true;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  function fn2() {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return this;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  function identity(x) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return x;
+  }
+
+  exports.fn1 = fn1;
+  exports.fn2 = fn2;
+  exports.identity = identity;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
+
+  return exports;
+
+}({}));
+
+function fn1(){return JustFunctions.fn1.apply(null,arguments);}function fn2(){return JustFunctions.fn2.apply(null,arguments);}function identity(){return JustFunctions.identity.apply(null,arguments);}
+",
+      "dynamicImports": Array [],
+      "exports": Array [
+        "fn1",
+        "fn2",
+        "identity",
+      ],
+      "facadeModuleId": "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-functions.js",
+      "fileName": "just-functions.js",
+      "implicitlyLoadedBefore": Array [],
+      "importedBindings": Object {},
+      "imports": Array [],
+      "isDynamicEntry": false,
+      "isEntry": true,
+      "isImplicitEntry": false,
+      "map": null,
+      "modules": Object {
+        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-functions.js": Object {
+          "originalLength": 494,
+          "removedExports": Array [],
+          "renderedExports": Array [
+            "fn1",
+            "fn2",
+            "identity",
+          ],
+          "renderedLength": 472,
+        },
+      },
+      "name": "just-functions",
+      "referencedFiles": Array [],
+      "type": "chunk",
+    },
+  ],
+}
+`;
+
+exports[`generates bindings for variable-only file 1`] = `
+Object {
+  "output": Array [
+    Object {
+      "code": "(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+	typeof define === 'function' && define.amd ? define(['exports'], factory) :
+	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.JustVariables = {}));
+}(this, (function (exports) { 'use strict';
+
+	const foo = 'bar';
+	let spam = ['eggs', 'eggs', 'eggs'];
+	var context = hiddenContext;
+	var hiddenContext = -42;
+
+	exports.context = context;
+	exports.foo = foo;
+	exports.spam = spam;
+
+	Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
+
+var foo=JustVariables.foo;var spam=JustVariables.spam;var context=JustVariables.context;
+",
+      "dynamicImports": Array [],
+      "exports": Array [
+        "context",
+        "foo",
+        "spam",
+      ],
+      "facadeModuleId": "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-variables.js",
+      "fileName": "just-variables.js",
+      "implicitlyLoadedBefore": Array [],
+      "importedBindings": Object {},
+      "imports": Array [],
+      "isDynamicEntry": false,
+      "isEntry": true,
+      "isImplicitEntry": false,
+      "map": null,
+      "modules": Object {
+        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-variables.js": Object {
+          "originalLength": 131,
+          "removedExports": Array [],
+          "renderedExports": Array [
+            "foo",
+            "spam",
+            "context",
+          ],
+          "renderedLength": 109,
+        },
+      },
+      "name": "just-variables",
+      "referencedFiles": Array [],
+      "type": "chunk",
+    },
+  ],
+}
+`;
+
+exports[`generates bindings for variable-only file 2`] = `
+Object {
+  "output": Array [
+    Object {
+      "code": "var JustVariables = (function (exports) {
+	'use strict';
+
+	const foo = 'bar';
+	let spam = ['eggs', 'eggs', 'eggs'];
+	var context = hiddenContext;
+	var hiddenContext = -42;
+
+	exports.context = context;
+	exports.foo = foo;
+	exports.spam = spam;
+
+	Object.defineProperty(exports, '__esModule', { value: true });
+
+	return exports;
+
+}({}));
+
+var foo=JustVariables.foo;var spam=JustVariables.spam;var context=JustVariables.context;
+",
+      "dynamicImports": Array [],
+      "exports": Array [
+        "context",
+        "foo",
+        "spam",
+      ],
+      "facadeModuleId": "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-variables.js",
+      "fileName": "just-variables.js",
+      "implicitlyLoadedBefore": Array [],
+      "importedBindings": Object {},
+      "imports": Array [],
+      "isDynamicEntry": false,
+      "isEntry": true,
+      "isImplicitEntry": false,
+      "map": null,
+      "modules": Object {
+        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-variables.js": Object {
+          "originalLength": 131,
+          "removedExports": Array [],
+          "renderedExports": Array [
+            "foo",
+            "spam",
+            "context",
+          ],
+          "renderedLength": 109,
+        },
+      },
+      "name": "just-variables",
+      "referencedFiles": Array [],
+      "type": "chunk",
+    },
+  ],
+}
+`;
