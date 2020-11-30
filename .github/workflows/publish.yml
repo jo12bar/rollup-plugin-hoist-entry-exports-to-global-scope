@@ -1,0 +1,53 @@
+name: Publish
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [14.x]
+        include:
+          - os: ubuntu-latest
+            npmCacheDir: '~/.npm'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # Setup .npmrc file to publish to npm:
+      - name: Use Node.js ${{ matrix.node-version }} for publishing to npm
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v2
+        with:
+          path: ${{ matrix.npmCacheDir }}
+          key: ${{ runner.OS }}-node-${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-${{ matrix.node-version }}
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+
+      # Publish to npm:
+      - run: npm ci
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # Setup .npmrc file to publish to GitHub Packages:
+      - uses: actions/setup-node@v1
+        with:
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@jo12bar'
+
+      # Publish to GitHub Packages
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

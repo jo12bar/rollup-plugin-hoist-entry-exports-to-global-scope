@@ -1,5 +1,5 @@
 {
-  "name": "rollup-plugin-hoist-entry-exports-to-global-scope",
+  "name": "@jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope",
   "version": "1.0.0",
   "description": "A simple plugin that hoists any named exports in the entry file to the global scope (i.e. outside the IIFE/UMD/similar scope)",
   "main": "dist/index.js",
@@ -15,7 +15,9 @@
   ],
   "author": "Johann Barnard <johann.b@telus.net>",
   "license": "MIT",
-  "bugs": "https://github.com/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/issues",
+  "bugs": {
+    "url": "https://github.com/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/issues"
+  },
   "homepage": "https://github.com/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope#readme",
   "scripts": {
     "build": "rollup -c",
