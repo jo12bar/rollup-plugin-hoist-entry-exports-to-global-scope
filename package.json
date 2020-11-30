@@ -29,8 +29,7 @@
     "prepublishOnly": "npm run lint && npm run format"
   },
   "files": [
-    "dist",
-    "types",
+    "dist/**/*",
     "README.md",
     "LICENSE"
   ],
