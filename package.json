@@ -2,9 +2,9 @@
   "name": "@jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope",
   "version": "1.0.2",
   "description": "A simple plugin that hoists any named exports in the entry file to the global scope (i.e. outside the IIFE/UMD/similar scope)",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "types": "dist/types/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/types/src/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope.git"
