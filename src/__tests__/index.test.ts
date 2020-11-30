@@ -1,6 +1,10 @@
-import { rollup, RollupOutput } from 'rollup';
+import { rollup, RollupOutput, OutputChunk, OutputAsset } from 'rollup';
 import hoistExports from '../index';
 import * as path from 'path';
+
+function isRollupChunk(x: OutputChunk | OutputAsset): x is OutputChunk {
+  return x.type === 'chunk';
+}
 
 async function generateUmdAndIifeBundles(
   relativePath: string,
@@ -23,8 +27,12 @@ test('generates bindings for variable-only file', async () => {
     'JustVariables'
   );
 
-  expect(umd).toMatchSnapshot();
-  expect(iife).toMatchSnapshot();
+  expect(
+    umd.output.filter(isRollupChunk).map((chunk) => chunk.code)
+  ).toMatchSnapshot();
+  expect(
+    iife.output.filter(isRollupChunk).map((chunk) => chunk.code)
+  ).toMatchSnapshot();
 });
 
 test('generates bindings for function-only file', async () => {
@@ -33,8 +41,12 @@ test('generates bindings for function-only file', async () => {
     'JustFunctions'
   );
 
-  expect(umd).toMatchSnapshot();
-  expect(iife).toMatchSnapshot();
+  expect(
+    umd.output.filter(isRollupChunk).map((chunk) => chunk.code)
+  ).toMatchSnapshot();
+  expect(
+    iife.output.filter(isRollupChunk).map((chunk) => chunk.code)
+  ).toMatchSnapshot();
 });
 
 test('generates bindings for class-only file', async () => {
@@ -43,8 +55,12 @@ test('generates bindings for class-only file', async () => {
     'JustClasses'
   );
 
-  expect(umd).toMatchSnapshot();
-  expect(iife).toMatchSnapshot();
+  expect(
+    umd.output.filter(isRollupChunk).map((chunk) => chunk.code)
+  ).toMatchSnapshot();
+  expect(
+    iife.output.filter(isRollupChunk).map((chunk) => chunk.code)
+  ).toMatchSnapshot();
 });
 
 test('generates bindings for files that contain imports', async () => {
@@ -53,6 +69,10 @@ test('generates bindings for files that contain imports', async () => {
     'ImportingThings'
   );
 
-  expect(umd).toMatchSnapshot();
-  expect(iife).toMatchSnapshot();
+  expect(
+    umd.output.filter(isRollupChunk).map((chunk) => chunk.code)
+  ).toMatchSnapshot();
+  expect(
+    iife.output.filter(isRollupChunk).map((chunk) => chunk.code)
+  ).toMatchSnapshot();
 });

@@ -1,10 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`generates bindings for class-only file 1`] = `
-Object {
-  "output": Array [
-    Object {
-      "code": "(function (global, factory) {
+Array [
+  "(function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.JustClasses = {}));
@@ -32,44 +30,12 @@ Object {
 
 var TestClass1=JustClasses.TestClass1;var TestClass2=JustClasses.TestClass2;
 ",
-      "dynamicImports": Array [],
-      "exports": Array [
-        "TestClass1",
-        "TestClass2",
-      ],
-      "facadeModuleId": "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-classes.js",
-      "fileName": "just-classes.js",
-      "implicitlyLoadedBefore": Array [],
-      "importedBindings": Object {},
-      "imports": Array [],
-      "isDynamicEntry": false,
-      "isEntry": true,
-      "isImplicitEntry": false,
-      "map": null,
-      "modules": Object {
-        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-classes.js": Object {
-          "originalLength": 195,
-          "removedExports": Array [],
-          "renderedExports": Array [
-            "TestClass1",
-            "TestClass2",
-          ],
-          "renderedLength": 180,
-        },
-      },
-      "name": "just-classes",
-      "referencedFiles": Array [],
-      "type": "chunk",
-    },
-  ],
-}
+]
 `;
 
 exports[`generates bindings for class-only file 2`] = `
-Object {
-  "output": Array [
-    Object {
-      "code": "var JustClasses = (function (exports) {
+Array [
+  "var JustClasses = (function (exports) {
   'use strict';
 
   class TestClass1 {
@@ -96,44 +62,12 @@ Object {
 
 var TestClass1=JustClasses.TestClass1;var TestClass2=JustClasses.TestClass2;
 ",
-      "dynamicImports": Array [],
-      "exports": Array [
-        "TestClass1",
-        "TestClass2",
-      ],
-      "facadeModuleId": "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-classes.js",
-      "fileName": "just-classes.js",
-      "implicitlyLoadedBefore": Array [],
-      "importedBindings": Object {},
-      "imports": Array [],
-      "isDynamicEntry": false,
-      "isEntry": true,
-      "isImplicitEntry": false,
-      "map": null,
-      "modules": Object {
-        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-classes.js": Object {
-          "originalLength": 195,
-          "removedExports": Array [],
-          "renderedExports": Array [
-            "TestClass1",
-            "TestClass2",
-          ],
-          "renderedLength": 180,
-        },
-      },
-      "name": "just-classes",
-      "referencedFiles": Array [],
-      "type": "chunk",
-    },
-  ],
-}
+]
 `;
 
 exports[`generates bindings for files that contain imports 1`] = `
-Object {
-  "output": Array [
-    Object {
-      "code": "(function (global, factory) {
+Array [
+  "(function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.ImportingThings = {}));
@@ -180,73 +114,12 @@ Object {
 
 var CompositeClass=ImportingThings.CompositeClass;
 ",
-      "dynamicImports": Array [],
-      "exports": Array [
-        "CompositeClass",
-      ],
-      "facadeModuleId": "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/importing-things.js",
-      "fileName": "importing-things.js",
-      "implicitlyLoadedBefore": Array [],
-      "importedBindings": Object {},
-      "imports": Array [],
-      "isDynamicEntry": false,
-      "isEntry": true,
-      "isImplicitEntry": false,
-      "map": null,
-      "modules": Object {
-        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/importing-things.js": Object {
-          "originalLength": 444,
-          "removedExports": Array [],
-          "renderedExports": Array [
-            "CompositeClass",
-          ],
-          "renderedLength": 298,
-        },
-        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-classes.js": Object {
-          "originalLength": 195,
-          "removedExports": Array [],
-          "renderedExports": Array [
-            "TestClass1",
-            "TestClass2",
-          ],
-          "renderedLength": 180,
-        },
-        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-functions.js": Object {
-          "originalLength": 494,
-          "removedExports": Array [
-            "fn1",
-            "fn2",
-          ],
-          "renderedExports": Array [
-            "identity",
-          ],
-          "renderedLength": 259,
-        },
-        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-variables.js": Object {
-          "originalLength": 131,
-          "removedExports": Array [
-            "foo",
-            "context",
-          ],
-          "renderedExports": Array [
-            "spam",
-          ],
-          "renderedLength": 36,
-        },
-      },
-      "name": "importing-things",
-      "referencedFiles": Array [],
-      "type": "chunk",
-    },
-  ],
-}
+]
 `;
 
 exports[`generates bindings for files that contain imports 2`] = `
-Object {
-  "output": Array [
-    Object {
-      "code": "var ImportingThings = (function (exports) {
+Array [
+  "var ImportingThings = (function (exports) {
   'use strict';
 
   class TestClass1 {
@@ -292,73 +165,12 @@ Object {
 
 var CompositeClass=ImportingThings.CompositeClass;
 ",
-      "dynamicImports": Array [],
-      "exports": Array [
-        "CompositeClass",
-      ],
-      "facadeModuleId": "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/importing-things.js",
-      "fileName": "importing-things.js",
-      "implicitlyLoadedBefore": Array [],
-      "importedBindings": Object {},
-      "imports": Array [],
-      "isDynamicEntry": false,
-      "isEntry": true,
-      "isImplicitEntry": false,
-      "map": null,
-      "modules": Object {
-        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/importing-things.js": Object {
-          "originalLength": 444,
-          "removedExports": Array [],
-          "renderedExports": Array [
-            "CompositeClass",
-          ],
-          "renderedLength": 298,
-        },
-        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-classes.js": Object {
-          "originalLength": 195,
-          "removedExports": Array [],
-          "renderedExports": Array [
-            "TestClass1",
-            "TestClass2",
-          ],
-          "renderedLength": 180,
-        },
-        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-functions.js": Object {
-          "originalLength": 494,
-          "removedExports": Array [
-            "fn1",
-            "fn2",
-          ],
-          "renderedExports": Array [
-            "identity",
-          ],
-          "renderedLength": 259,
-        },
-        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-variables.js": Object {
-          "originalLength": 131,
-          "removedExports": Array [
-            "foo",
-            "context",
-          ],
-          "renderedExports": Array [
-            "spam",
-          ],
-          "renderedLength": 36,
-        },
-      },
-      "name": "importing-things",
-      "referencedFiles": Array [],
-      "type": "chunk",
-    },
-  ],
-}
+]
 `;
 
 exports[`generates bindings for function-only file 1`] = `
-Object {
-  "output": Array [
-    Object {
-      "code": "(function (global, factory) {
+Array [
+  "(function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.JustFunctions = {}));
@@ -391,46 +203,12 @@ Object {
 
 function fn1(){return JustFunctions.fn1.apply(null,arguments);}function fn2(){return JustFunctions.fn2.apply(null,arguments);}function identity(){return JustFunctions.identity.apply(null,arguments);}
 ",
-      "dynamicImports": Array [],
-      "exports": Array [
-        "fn1",
-        "fn2",
-        "identity",
-      ],
-      "facadeModuleId": "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-functions.js",
-      "fileName": "just-functions.js",
-      "implicitlyLoadedBefore": Array [],
-      "importedBindings": Object {},
-      "imports": Array [],
-      "isDynamicEntry": false,
-      "isEntry": true,
-      "isImplicitEntry": false,
-      "map": null,
-      "modules": Object {
-        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-functions.js": Object {
-          "originalLength": 494,
-          "removedExports": Array [],
-          "renderedExports": Array [
-            "fn1",
-            "fn2",
-            "identity",
-          ],
-          "renderedLength": 472,
-        },
-      },
-      "name": "just-functions",
-      "referencedFiles": Array [],
-      "type": "chunk",
-    },
-  ],
-}
+]
 `;
 
 exports[`generates bindings for function-only file 2`] = `
-Object {
-  "output": Array [
-    Object {
-      "code": "var JustFunctions = (function (exports) {
+Array [
+  "var JustFunctions = (function (exports) {
   'use strict';
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -462,46 +240,12 @@ Object {
 
 function fn1(){return JustFunctions.fn1.apply(null,arguments);}function fn2(){return JustFunctions.fn2.apply(null,arguments);}function identity(){return JustFunctions.identity.apply(null,arguments);}
 ",
-      "dynamicImports": Array [],
-      "exports": Array [
-        "fn1",
-        "fn2",
-        "identity",
-      ],
-      "facadeModuleId": "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-functions.js",
-      "fileName": "just-functions.js",
-      "implicitlyLoadedBefore": Array [],
-      "importedBindings": Object {},
-      "imports": Array [],
-      "isDynamicEntry": false,
-      "isEntry": true,
-      "isImplicitEntry": false,
-      "map": null,
-      "modules": Object {
-        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-functions.js": Object {
-          "originalLength": 494,
-          "removedExports": Array [],
-          "renderedExports": Array [
-            "fn1",
-            "fn2",
-            "identity",
-          ],
-          "renderedLength": 472,
-        },
-      },
-      "name": "just-functions",
-      "referencedFiles": Array [],
-      "type": "chunk",
-    },
-  ],
-}
+]
 `;
 
 exports[`generates bindings for variable-only file 1`] = `
-Object {
-  "output": Array [
-    Object {
-      "code": "(function (global, factory) {
+Array [
+  "(function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
 	typeof define === 'function' && define.amd ? define(['exports'], factory) :
 	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.JustVariables = {}));
@@ -522,46 +266,12 @@ Object {
 
 var foo=JustVariables.foo;var spam=JustVariables.spam;var context=JustVariables.context;
 ",
-      "dynamicImports": Array [],
-      "exports": Array [
-        "context",
-        "foo",
-        "spam",
-      ],
-      "facadeModuleId": "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-variables.js",
-      "fileName": "just-variables.js",
-      "implicitlyLoadedBefore": Array [],
-      "importedBindings": Object {},
-      "imports": Array [],
-      "isDynamicEntry": false,
-      "isEntry": true,
-      "isImplicitEntry": false,
-      "map": null,
-      "modules": Object {
-        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-variables.js": Object {
-          "originalLength": 131,
-          "removedExports": Array [],
-          "renderedExports": Array [
-            "foo",
-            "spam",
-            "context",
-          ],
-          "renderedLength": 109,
-        },
-      },
-      "name": "just-variables",
-      "referencedFiles": Array [],
-      "type": "chunk",
-    },
-  ],
-}
+]
 `;
 
 exports[`generates bindings for variable-only file 2`] = `
-Object {
-  "output": Array [
-    Object {
-      "code": "var JustVariables = (function (exports) {
+Array [
+  "var JustVariables = (function (exports) {
 	'use strict';
 
 	const foo = 'bar';
@@ -581,37 +291,5 @@ Object {
 
 var foo=JustVariables.foo;var spam=JustVariables.spam;var context=JustVariables.context;
 ",
-      "dynamicImports": Array [],
-      "exports": Array [
-        "context",
-        "foo",
-        "spam",
-      ],
-      "facadeModuleId": "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-variables.js",
-      "fileName": "just-variables.js",
-      "implicitlyLoadedBefore": Array [],
-      "importedBindings": Object {},
-      "imports": Array [],
-      "isDynamicEntry": false,
-      "isEntry": true,
-      "isImplicitEntry": false,
-      "map": null,
-      "modules": Object {
-        "/home/johann/Coding/Repos/jo12bar/rollup-plugin-hoist-entry-exports-to-global-scope/src/__tests__/fixtures/just-variables.js": Object {
-          "originalLength": 131,
-          "removedExports": Array [],
-          "renderedExports": Array [
-            "foo",
-            "spam",
-            "context",
-          ],
-          "renderedLength": 109,
-        },
-      },
-      "name": "just-variables",
-      "referencedFiles": Array [],
-      "type": "chunk",
-    },
-  ],
-}
+]
 `;
